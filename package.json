@@ -1,5 +1,5 @@
 {
-  "name": "mock-restful-express",
+  "name": "dsg-mock-restful-express",
   "version": "0.0.2",
   "description": "A RESTful mock server powered by Express.js",
   "main": "mock-server.js",

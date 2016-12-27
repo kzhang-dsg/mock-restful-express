@@ -12,8 +12,8 @@ var express = require('express'),
 program
     .version(module.exports.version)
     .usage('[options]')
-    .option('-U, --user [username]', 'User for basicAuth (default: services)')
-    .option('-P, --pass [password]', 'Password for basicAuth (default: 123456)')
+    .option('-U, --user [username]', 'User for basicAuth')
+    .option('-P, --pass [password]', 'Password for basicAuth')
     .option('-p, --port [number]', 'Port to execute the server (default: 8880)')
     .option('-m, --mocksSourcePath [path]', 'Path to mocks')
     .option('-r, --routesSourcePath [path]', 'Path to routes')
@@ -26,7 +26,9 @@ global.__routesPath = program.routesSourcePath || process.cwd();
 app.set('port', program.port || 8880);
 
 // Authenticator
-app.use(express.basicAuth(program.user || 'services', program.pass || '123456'));
+if (program.user && program.pass) {
+    app.use(express.basicAuth(program.user, program.pass));
+}
 app.use(express.bodyParser());
 app.use(express.logger('dev'));
 app.use(express.methodOverride());
