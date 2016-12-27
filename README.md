@@ -34,7 +34,7 @@ This project is also based on mocked responses, defined programatically in a con
 The **/examples** folder within this project contains all the references explained below. To see them in practice, make the mock-server install through npm, as explained below:
 
 ```bash
-npm install mock-restful-express -g
+npm install dsg-mock-restful-express -g
 ```
 
 This command make a installation of this library within node global dependencies folder. To run the mock server, within the **examples** folder, run the following on the terminal:
